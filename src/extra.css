@@ -1,0 +1,70 @@
+/* Additions for the real (non-demo) controls. Everything here reuses the approved theme's
+   tokens and shapes from style.css — same borders, radii, shadows, palette and type —
+   so new forms look like the existing archive controls, chips and cards. style.css is unchanged. */
+
+.nb-form { display: flex; flex-direction: column; gap: 14px; }
+.nb-form .row { display: flex; gap: 16px; flex-wrap: wrap; }
+.nb-form label { display: flex; flex-direction: column; gap: 5px; font-weight: 700; flex: 1; min-width: 150px; }
+.nb-form input:not([type="checkbox"]), .nb-form select, .nb-form textarea, .nb-input {
+  font: inherit; color: #111; background: #fffdf6; border: 3px solid #111; border-radius: 5px; padding: 10px;
+  min-height: 46px; max-width: 100%; width: 100%; box-sizing: border-box; box-shadow: 3px 3px 0 #111;
+}
+.nb-form textarea { min-height: 96px; resize: vertical; line-height: 22px; }
+.nb-form textarea.tall { min-height: 180px; }
+.nb-form input:focus-visible, .nb-form textarea:focus-visible, .nb-form select:focus-visible { outline: 3px solid var(--nb-blue); outline-offset: 4px; }
+.nb-form .check { flex-direction: row; align-items: center; gap: 8px; min-height: 44px; flex: 0 1 auto; min-width: 0; font-weight: 700; }
+.nb-form .check input { width: 20px; height: 20px; accent-color: var(--nb-orange); }
+.nb-hint { font-size: 12px; line-height: 18px; color: #585254; font-weight: 500; }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.btn-row .mock-button { margin-top: 0; }
+.mock-button:disabled, .chip:disabled { opacity: .55; transform: none; box-shadow: none; }
+.mock-button.lime { background: var(--nb-lime); color: var(--nb-black); }
+.mock-button.blue { background: var(--nb-blue); color: var(--nb-white); }
+.mock-button.white { background: var(--nb-white); color: var(--nb-black); }
+.chip.danger { border-color: #c0261a; color: #c0261a; }
+.chip.danger:hover { background: #c0261a; color: #fff; box-shadow: 3px 3px 0 #111; }
+a.chip { text-decoration: none; display: inline-flex; align-items: center; }
+
+.msg-ok { font-weight: 800; font-size: 13px; background: var(--nb-lime); border: 2px solid #111; border-radius: 999px; padding: 3px 12px; }
+.msg-err { font-weight: 800; font-size: 13px; color: #c0261a; }
+.notice { border: var(--nb-border); border-radius: 14px; padding: 14px 18px; background: var(--nb-mauve); box-shadow: var(--nb-shadow); display: flex; flex-direction: column; gap: 8px; }
+.notice.lime { background: #EFFFC4; }
+.notice.white { background: var(--nb-white); }
+.notice strong { font-family: 'Anton', 'Arial Narrow', sans-serif; font-weight: 400; font-size: 20px; letter-spacing: .01em; }
+
+.panel-card { border: var(--nb-border); border-radius: 14px; padding: 16px 18px; background: var(--nb-white); box-shadow: var(--nb-shadow); display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.panel-card h3 { margin: 0; font-size: 22px; }
+.sign-in { max-width: 520px; }
+
+/* bundles editor */
+.bundle-card.is-selected { outline: 4px solid var(--nb-blue); outline-offset: 3px; }
+button.bundle-card { font: inherit; text-align: left; color: inherit; }
+.bundle-editor { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+@media (min-width: 960px) { .bundle-editor { grid-template-columns: minmax(0, 1fr) 320px; } }
+.brief-edit { border: var(--nb-border); border-radius: 14px; background: var(--nb-white); box-shadow: var(--nb-shadow); padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.brief-edit summary { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; font-weight: 800; min-height: 44px; cursor: pointer; list-style: none; }
+.brief-edit summary::-webkit-details-marker { display: none; }
+.diff-list { margin: 0; padding-left: 18px; font-size: 13px; display: flex; flex-direction: column; gap: 4px; }
+
+/* creator page extras */
+.brief-tools { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 4px; }
+.brief-flag { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; padding: 2px 9px; border: 2px solid #111; border-radius: 999px; background: var(--nb-orange); color: #fff; }
+.brief-flag.updated { background: var(--nb-mauve); color: #111; }
+.brief-flag.done { background: var(--nb-lime); color: #111; }
+.brief-flag.stale { background: #ffe1b8; color: #111; }
+.brief-comments { border-top: 2px solid #111; margin-top: 12px; padding-top: 12px; display: flex; flex-direction: column; gap: 10px; }
+.comment { border-left: 3px solid rgba(37,31,33,.25); padding-left: 10px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.copy-fallback { width: 100%; min-height: 70px; font: 13px/1.4 ui-monospace, Menlo, monospace; border: 2px solid #111; border-radius: 5px; padding: 8px; box-sizing: border-box; }
+.embed-frame { width: 100%; max-width: 340px; aspect-ratio: 9 / 16; max-height: 80vh; border: var(--nb-border); border-radius: 14px; background: #000; display: block; }
+.embed-frame.wide { aspect-ratio: 16 / 9; max-width: 560px; }
+.link-box { font: 12px/1.5 ui-monospace, Menlo, monospace; overflow-wrap: anywhere; background: #fffdf6; border: 2px solid #111; border-radius: 5px; padding: 8px; }
+.thumb { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border: var(--nb-border); border-radius: 14px; box-shadow: var(--nb-shadow); display: block; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th, .data-table td { text-align: left; vertical-align: top; padding: 8px; border-bottom: 2px solid rgba(0,0,0,.12); }
+.data-table th { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--nb-blue); }
+.table-wrap { overflow-x: auto; border: var(--nb-border); border-radius: 12px; background: #fffdf7; }
+.queue-card button { align-self: flex-start; }
+.loading { font-weight: 800; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+a:focus-visible, .chip:focus-visible, .step:focus-visible, .creator-pill:focus-visible, textarea:focus-visible, .bundle-card:focus-visible, .mock-button:focus-visible { outline: 3px solid #0044ff; outline-offset: 4px; }
